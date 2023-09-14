@@ -14,6 +14,7 @@
     --bz-dark-soft: #b1b1b1;
     --bz-black: #000;
     --bz-success: #009688;
+    --bz-success-light: #d5f9ba;
     --bz-communications: #8edafc;
     --bz-communications-soft: #f2fbff;
     --bz-border: #f3f3f3;
@@ -79,7 +80,6 @@
 #left_side {
     border-right: 1px solid lightgrey;
     width: 35%;
-    /* height: 100%; */
     display: flex;
     flex-direction: column;
 }
@@ -94,6 +94,16 @@
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     margin: .5rem;
+}
+
+.sent {
+    background-color: var(--bz-success-light);
+    align-self: flex-end;
+}
+
+.received {
+    background-color: var(--bz-white);
+    align-content: flex-start;
 }
 
 /* #endregion generals */
@@ -233,7 +243,7 @@
 .contact_info {
     display: flex;
     flex-direction: column;
-    flex-grow: 1; 
+    flex-grow: 1;
     margin: 0 0.8rem;
 }
 
@@ -318,6 +328,32 @@
 .chat_messages {
     background-image: url(../img/mine.jpg);
     flex-grow: 1;
+    overflow-y: auto;
+    padding-top: 3rem;
+}
+
+.chat_messages .container {
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.message {
+    border-radius: 10px;
+    width: 35%;
+    padding: .5rem;
+    margin: .5rem;
+    display: inline-block;
+}
+
+.text_message {
+    margin: .75rem 0 0 .75rem;
+}
+
+.hour {
+    display: block;
+    text-align: right;
 }
 
 .chat_inputs {

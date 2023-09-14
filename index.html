@@ -154,7 +154,21 @@
                             <!-- /.chat_settings -->
                         </div>
                         <!-- /.top -->
-                        <div class="chat_messages"></div>
+                        <div class="chat_messages">
+
+                            <div class="container">
+                                <template v-for="item in contacts[0].messages">
+                                    <div class="message" :class="item.status">
+                                        <div class="text_message">{{item.message}}</div>
+                                        <!-- /.text_message -->
+                                        <small class="hour">{{ new Date(item.date).getHours() + ':' + new Date(item.date).getMinutes() }}</small>
+                                        <!-- /.hour -->
+                                    </div>
+                                    <!-- /.message -->
+                                </template>
+                            </div>
+
+                        </div>
                         <!-- /.chat -->
                         <div class="bottom">
                             <div class="chat_inputs">

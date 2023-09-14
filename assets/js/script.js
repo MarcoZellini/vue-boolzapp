@@ -170,7 +170,6 @@ createApp({
         }
     },
     methods: {
-
     }
 }).mount('#app');
 
