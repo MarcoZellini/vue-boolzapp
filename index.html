@@ -4,15 +4,91 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Boolzapp</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-	<link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="./assets/css/style.css">
     </head>
-    <body>
-        <h1>Hello User</h1>
-        <p>Some html goes here...</p>
+    <body class="">
+
+        <!-- Milestone 1
+        Replica della grafica con la possibilità di avere messaggi scritti dall'utente (verdi) e dall'interlocutore (bianco) assegnando due classi CSS diverse
+        Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto -->
+
+        <main id="site_main">
+            <div id="app">
+
+                <div id="left_side">
+                    <div class="profile">
+                        <div class="profile_info">
+                            <div class="profile_img">
+                                <img src="./assets/img/avatar_io.jpg" alt="my_avatar">
+                            </div>
+                            <!-- /.profile_img -->
+                            <div class="profile_name">Marco</div>
+                            <!-- /.profile_name -->
+                        </div>
+                        <!-- /.profile_info -->
+
+                        <div class="profile_actions">
+                            <div class="story">
+                                <i class="fa-solid fa-circle-notch fa-xl fa-fw"></i>
+                            </div>
+                            <!-- /.story -->
+                            <div class="status">
+                                <i class="fa-solid fa-message fa-xl fa-fw"></i>
+                            </div>
+                            <!-- /.status -->
+                            <div class="settings">
+                                <i class="fa-solid fa-ellipsis-vertical fa-xl fa-fw"></i>
+                            </div>
+                            <!-- /.settings -->
+                        </div>
+                        <!-- /.profile_settings -->
+
+                    </div>
+                    <!-- /.profile_settings -->
+                    <div class="communications">
+                        <div class="bell_icon"></div>
+                        <!-- /.bell-icon -->
+                        <div class="communication_info">
+                            <div class="communication_text"></div>
+                            <!-- /.communication_text -->
+                            <div class="communication_link"></div>
+                            <!-- /.communication_link -->
+                        </div>
+                        <!-- /.communication-text -->
+                    </div>
+                    <!-- /.communications -->
+                    <div class="contacts">
+                        <div class="contacts_search_bar"></div>
+                        <!-- /.contacts_search_bar -->
+                        <div class="contacts_list"></div>
+                        <!-- /.contacts_list -->
+                    </div>
+                    <!-- /.contacts -->
+                </div>
+                <!-- /#left_side -->
+
+                <div id="right_side">
+
+                    <div id="chat">
+                        <div class="top"></div>
+                        <!-- /.top -->
+                        <div class="chat_messages"></div>
+                        <!-- /.chat -->
+                        <div class="bottom"></div>
+                        <!-- /.chat_inputs -->
+                    </div>
+                    <!-- /.chat -->
+
+                </div>
+                <!-- /#right_side -->
+
+            </div>
+            <!-- /#app -->
+        </main>
+        <!-- /#site_main -->
 
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
         <script type="text/javascript" src="./assets/js/script.js"></script>
     </body>
 </html>

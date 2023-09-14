@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bz-light:#eaeaea;
+    --bz-light-soft: #d9dbd4;
+    --bz-dark: #6b7376;
+    --bz-dark-soft: #b1b1b1;
+    --bz-success: #009688;
+    --bz-communications: #8edafc;
+}
+
+/* #region debug */
+
+.debug #right_side {
+    background-color: palevioletred;
+}
+
+.debug .profile {
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* .debug .profile_img {
+    background-color: black;
+    width: 50px;
+    aspect-ratio: 1/1;
+    padding: 1rem 0 0 1rem;
+} */
+
+.debug .profile_actions {
+    background-color: yellow;
+    /* height:  */
+    /* width: 50px;
+    aspect-ratio: 1/1; */
+    /* padding: 1rem 0 0 1rem; */
+}
+
+.debug .communications {
+    background-color: blue;
+}
+
+.debug .contacts {
+    background-color: green;
+}
+
+.debug .top {
+    background-color: orange;
+}
+
+.debug .chat_messages {
+    background-color: salmon;
+}
+
+.debug .bottom {
+    background-color: orange;
+}
+
+/* #endregion debug */
+
+#site_main {
+    height: 100vh;
+    background: linear-gradient(to bottom, var(--bz-success) 15%, var(--bz-light-soft) 15% 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app {
+    background-color: var(--bz-light);
+    width: 80%;
+    height: 95%;
+    display: flex;
+}
+
+#left_side {
+    border-right: 1px solid lightgrey;
+    width: 35%;
+    height: 100%;
+}
+
+#right_side {
+    width: 65%;
+    height: 100%;
+}
+
+/* #region profile */
+
+.profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile_info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile_img {
+    padding: .5rem;
+}
+
+.profile_img img{
+    width: 50px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+}
+
+.profile_name {
+    font-weight: 400;
+}
+
+.profile_actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--bz-dark-soft);
+    padding: 0 .25rem;
+}
+
+.story,
+.status,
+.settings {
+    padding: .25rem;
+}
+
+/* #endregion profile */
+
+/* #region communications */
+
+.communications {
+    background-color: var(--bz-communications);
+    height: 8%;
+}
+
+/* #endregion communications */
+
+
+.contacts {
+    height: 84%;
+}
+
+#chat {
+    height: 100%;
+}
+
+#chat .top {
+    height: 8%;
+}
+
+#chat .chat_messages {
+    height: 84%;
+}
+
+#chat .bottom {
+    height: 8%;
+}
