@@ -12,9 +12,11 @@
     --bz-light-soft: #d9dbd4;
     --bz-dark: #6b7376;
     --bz-dark-soft: #b1b1b1;
+    --bz-black: #000;
     --bz-success: #009688;
     --bz-communications: #8edafc;
     --bz-communications-soft: #f2fbff;
+    --bz-border: #f3f3f3;
 }
 
 /* #region debug */
@@ -77,12 +79,21 @@
 #left_side {
     border-right: 1px solid lightgrey;
     width: 35%;
-    height: 100%;
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
 }
 
 #right_side {
     width: 65%;
     height: 100%;
+}
+
+.avatar {
+    width: 60px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    margin: .5rem;
 }
 
 /* #endregion generals */
@@ -100,6 +111,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .profile_img img {
     width: 50px;
     aspect-ratio: 1 / 1;
@@ -147,7 +159,7 @@
     margin: 1rem;
 }
 
-.communication_link a{
+.communication_link a {
     color: var(--bz-dark);
     font-size: .8rem;
     letter-spacing: 1px;
@@ -155,15 +167,18 @@
 
 /* #endregion communications */
 
-
 /* #region contacts */
 
-.contacts_search_bar {
+.contacts {
+    height: 100%;
+}
+
+.search_bar {
     width: 100%;
     background-color: var(--bz-white-soft);
 }
 
-.contacts_search_bar form {
+.search_bar form {
     display: flex;
     padding: .5rem;
 }
@@ -171,8 +186,8 @@
 .search_button {
     width: 80px;
     height: 35px;
-    background-color: var(--bz-white);
-    border: 1px solid lightgrey;
+    background-color: white;
+    border: 1px solid var(--bz-border);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -185,16 +200,54 @@
 .search_input {
     width: 100%;
     padding-left: .5rem;
-    border: 1px solid lightgrey;
+    border: 1px solid var(--bz-border);
     border-left: none;
 }
 
 /* #endregion contacts */
 
+/* #region contact_list*/
 
-.contacts {
-    height: 84%;
+.contact_list {
+    background-color: var(--bz-white);
+    border-bottom: 1px solid var(--bz-light);
+    overflow-y: auto;
+    height: 100%;
 }
+
+.contact {
+    width: 100%;
+    display: flex;
+    padding: .25rem;
+    color: var(--bz-dark-soft);
+    justify-content: space-between;
+}
+
+.contact_image {
+    line-height: 0;
+}
+
+.contact_info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-top: .5rem;
+    margin: 0 0.8rem;
+}
+
+.contact_name {
+    color: var(--bz-black);
+    margin-bottom: .5rem;
+}
+
+.last_message_hour {
+    display: flex;
+    justify-content: end;
+    margin-right: 0;
+    padding: .5rem;
+}
+
+/* #endregion contact */
 
 #chat {
     height: 100%;

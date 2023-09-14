@@ -28,6 +28,7 @@
                         <div class="profile_info">
                             <div class="profile_img">
                                 <img src="./assets/img/avatar_io.jpg"
+                                    class="avatar"
                                     alt="my_avatar">
                             </div>
                             <!-- /.profile_img -->
@@ -73,21 +74,45 @@
                         <!-- /.communication-info -->
                     </div>
                     <!-- /.communications -->
-                    <div class="contacts">
-                        <div class="contacts_search_bar">
-                            <form>
-                                <button type="submit" class="search_button">
-                                    <i class="fas fa-search fa-lg fa-fw"></i>
-                                </button>
-                                <input type="text" class="search_input"
-                                    placeholder="Cerca o inizia una nuova chat">
-                            </form>
-                        </div>
-                        <!-- /.contacts_search_bar -->
-                        <div class="contacts_list"></div>
-                        <!-- /.contacts_list -->
+                    <div class="search_bar">
+                        <form>
+                            <button type="submit" class="search_button">
+                                <i class="fas fa-search fa-lg fa-fw"></i>
+                            </button>
+                            <input type="text" class="search_input"
+                                placeholder="Cerca o inizia una nuova chat">
+                        </form>
                     </div>
-                    <!-- /.contacts -->
+                    <!-- /.contacts_search_bar -->
+                    <div class="contact_list">
+                        <template v-for="item in contacts">
+                            <div class="contact">
+                                <div class="contact_image">
+                                    <img
+                                        :src="item.avatar"
+                                        alt class="avatar">
+                                </div>
+                                <!-- /.contact_image -->
+                                <div class="contact_info">
+                                    <div class="contact_name">{{item.name}}</div>
+                                    <!-- /.contact_name -->
+                                    <small class="contact_last_message">
+                                        {{ item.messages[item.messages.length -
+                                        1].message }}
+                                    </small>
+                                    <!-- /.contact_last_message -->
+                                </div>
+                                <!-- /.contact_info -->
+                                <div class="last_message_hour">
+                                    <small>12:00</small>
+                                </div>
+                                <!-- /.last_message_hour -->
+                            </div>
+                            <!-- /.contact -->
+                        </template>
+                        <!-- /template -->
+                    </div>
+                    <!-- /.contacts_list -->
                 </div>
                 <!-- /#left_side -->
 
