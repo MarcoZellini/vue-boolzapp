@@ -98,6 +98,8 @@
 
 /* #endregion generals */
 
+/* #region left_side */
+
 /* #region profile */
 
 .profile {
@@ -110,6 +112,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.profile_img {
+    line-height: 0;
 }
 
 .profile_img img {
@@ -167,11 +173,7 @@
 
 /* #endregion communications */
 
-/* #region contacts */
-
-.contacts {
-    height: 100%;
-}
+/* #region search_bar */
 
 .search_bar {
     width: 100%;
@@ -204,7 +206,7 @@
     border-left: none;
 }
 
-/* #endregion contacts */
+/* #endregion search_bar */
 
 /* #region contact_list*/
 
@@ -221,6 +223,7 @@
     padding: .25rem;
     color: var(--bz-dark-soft);
     justify-content: space-between;
+    align-items: center;
 }
 
 .contact_image {
@@ -230,8 +233,7 @@
 .contact_info {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    padding-top: .5rem;
+    flex-grow: 1; 
     margin: 0 0.8rem;
 }
 
@@ -249,18 +251,92 @@
 
 /* #endregion contact */
 
+/* #endregion left_side */
+
+/* #region right_side */
+
 #chat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     height: 100%;
 }
 
-#chat .top {
-    height: 8%;
+.top {
+    display: flex;
+    align-items: center;
 }
 
-#chat .chat_messages {
-    height: 84%;
+.chat_contact {
+    width: 100%;
+    display: flex;
+    color: var(--bz-dark-soft);
+    align-items: center;
 }
 
-#chat .bottom {
-    height: 8%;
+.chat_contact_image {
+    line-height: 0;
 }
+
+.chat_contact_image img {
+    width: 50px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    margin: .5rem;
+}
+
+.chat_contact_name {
+    color: var(--bz-black);
+}
+
+.chat_actions {
+    display: flex;
+    align-items: center;
+    color: var(--bz-dark-soft);
+}
+
+.search,
+.paperclip,
+.settings {
+    padding: .4rem;
+    font-size: bold;
+}
+
+.bottom {
+    padding: 0 1rem;
+}
+
+.emoticons,
+.chat_input,
+.voice_message {
+    padding: 1rem .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat_messages {
+    background-image: url(../img/mine.jpg);
+    flex-grow: 1;
+}
+
+.chat_inputs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--bz-dark);
+}
+
+.chat_input {
+    flex-grow: 1;
+}
+
+.text_area {
+    width: 100%;
+    height: 40px;
+    border: 0;
+    padding: 1rem .5rem;
+    border-radius: 5px;
+}
+
+/* #endregion right_side */
