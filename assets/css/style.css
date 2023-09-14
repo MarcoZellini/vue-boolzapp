@@ -6,13 +6,15 @@
 }
 
 :root {
-    --bz-white-soft: #f2fbff;
+    --bz-white: #fff;
+    --bz-white-soft: #fafafa;
     --bz-light: #eaeaea;
     --bz-light-soft: #d9dbd4;
     --bz-dark: #6b7376;
     --bz-dark-soft: #b1b1b1;
     --bz-success: #009688;
     --bz-communications: #8edafc;
+    --bz-communications-soft: #f2fbff;
 }
 
 /* #region debug */
@@ -54,6 +56,9 @@
 
 /* #endregion debug */
 
+
+/* #region generals */
+
 #site_main {
     height: 100vh;
     background: linear-gradient(to bottom, var(--bz-success) 15%, var(--bz-light-soft) 15% 100%);
@@ -79,6 +84,8 @@
     width: 65%;
     height: 100%;
 }
+
+/* #endregion generals */
 
 /* #region profile */
 
@@ -129,7 +136,7 @@
 }
 
 .communication_icon .fa-bell-slash {
-    background-color: var(--bz-white-soft);
+    background-color: var(--bz-communications-soft);
     color: var(--bz-communications);
     width: 50px;
     aspect-ratio: 1 / 1;
@@ -147,6 +154,42 @@
 }
 
 /* #endregion communications */
+
+
+/* #region contacts */
+
+.contacts_search_bar {
+    width: 100%;
+    background-color: var(--bz-white-soft);
+}
+
+.contacts_search_bar form {
+    display: flex;
+    padding: .5rem;
+}
+
+.search_button {
+    width: 80px;
+    height: 35px;
+    background-color: var(--bz-white);
+    border: 1px solid lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search_button .fa-search {
+    color: var(--bz-dark-soft);
+}
+
+.search_input {
+    width: 100%;
+    padding-left: .5rem;
+    border: 1px solid lightgrey;
+    border-left: none;
+}
+
+/* #endregion contacts */
 
 
 .contacts {
