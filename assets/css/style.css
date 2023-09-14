@@ -2,10 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: ‘Roboto’, sans-serif;
 }
 
 :root {
-    --bz-light:#eaeaea;
+    --bz-white-soft: #f2fbff;
+    --bz-light: #eaeaea;
     --bz-light-soft: #d9dbd4;
     --bz-dark: #6b7376;
     --bz-dark-soft: #b1b1b1;
@@ -26,19 +28,8 @@
     align-items: center;
 }
 
-/* .debug .profile_img {
-    background-color: black;
-    width: 50px;
-    aspect-ratio: 1/1;
-    padding: 1rem 0 0 1rem;
-} */
-
 .debug .profile_actions {
     background-color: yellow;
-    /* height:  */
-    /* width: 50px;
-    aspect-ratio: 1/1; */
-    /* padding: 1rem 0 0 1rem; */
 }
 
 .debug .communications {
@@ -102,15 +93,11 @@
     justify-content: center;
     align-items: center;
 }
-
-.profile_img {
-    padding: .5rem;
-}
-
-.profile_img img{
+.profile_img img {
     width: 50px;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
+    margin: .5rem;
 }
 
 .profile_name {
@@ -122,13 +109,13 @@
     justify-content: center;
     align-items: center;
     color: var(--bz-dark-soft);
-    padding: 0 .25rem;
+    padding: 0 .5rem;
 }
 
 .story,
 .status,
 .settings {
-    padding: .25rem;
+    padding: .4rem;
 }
 
 /* #endregion profile */
@@ -137,7 +124,26 @@
 
 .communications {
     background-color: var(--bz-communications);
-    height: 8%;
+    display: flex;
+    align-items: center;
+}
+
+.communication_icon .fa-bell-slash {
+    background-color: var(--bz-white-soft);
+    color: var(--bz-communications);
+    width: 50px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
+
+.communication_link a{
+    color: var(--bz-dark);
+    font-size: .8rem;
+    letter-spacing: 1px;
 }
 
 /* #endregion communications */

@@ -4,10 +4,17 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Boolzapp</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel=“preconnect” href=“https://fonts.googleapis.com”>
+        <link rel=“preconnect” href=“https://fonts.gstatic.com” crossorigin>
+        <link href=“https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=VT323&display=swap”
+            rel=“stylesheet”>
         <link rel="stylesheet" href="./assets/css/style.css">
     </head>
-    <body class="">
+    <body class>
 
         <!-- Milestone 1
         Replica della grafica con la possibilità di avere messaggi scritti dall'utente (verdi) e dall'interlocutore (bianco) assegnando due classi CSS diverse
@@ -20,7 +27,8 @@
                     <div class="profile">
                         <div class="profile_info">
                             <div class="profile_img">
-                                <img src="./assets/img/avatar_io.jpg" alt="my_avatar">
+                                <img src="./assets/img/avatar_io.jpg"
+                                    alt="my_avatar">
                             </div>
                             <!-- /.profile_img -->
                             <div class="profile_name">Marco</div>
@@ -30,15 +38,16 @@
 
                         <div class="profile_actions">
                             <div class="story">
-                                <i class="fa-solid fa-circle-notch fa-xl fa-fw"></i>
+                                <i class="fa-solid fa-circle-notch fa-lg fa-fw"></i>
                             </div>
                             <!-- /.story -->
                             <div class="status">
-                                <i class="fa-solid fa-message fa-xl fa-fw"></i>
+                                <i class="fa-solid fa-message fa-lg fa-fw"></i>
                             </div>
                             <!-- /.status -->
                             <div class="settings">
-                                <i class="fa-solid fa-ellipsis-vertical fa-xl fa-fw"></i>
+                                <i
+                                    class="fa-solid fa-ellipsis-vertical fa-lg fa-fw"></i>
                             </div>
                             <!-- /.settings -->
                         </div>
@@ -47,15 +56,21 @@
                     </div>
                     <!-- /.profile_settings -->
                     <div class="communications">
-                        <div class="bell_icon"></div>
-                        <!-- /.bell-icon -->
+                        <div class="communication_icon">
+                            <i class="fa-solid fa-bell-slash fa-lg"></i>
+                        </div>
+                        <!-- /.communication-icon -->
                         <div class="communication_info">
-                            <div class="communication_text"></div>
+                            <div class="communication_text">
+                                Ricevi notifiche di nuovi messaggi
+                            </div>
                             <!-- /.communication_text -->
-                            <div class="communication_link"></div>
+                            <div class="communication_link">
+                                <a href="#">Attiva notifiche desktop</a>
+                            </div>
                             <!-- /.communication_link -->
                         </div>
-                        <!-- /.communication-text -->
+                        <!-- /.communication-info -->
                     </div>
                     <!-- /.communications -->
                     <div class="contacts">
@@ -82,7 +97,6 @@
 
                 </div>
                 <!-- /#right_side -->
-
             </div>
             <!-- /#app -->
         </main>
