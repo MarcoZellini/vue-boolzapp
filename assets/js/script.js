@@ -6,6 +6,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            newMessage: '',
             activeContact: 0,
             contacts: [
                 {
@@ -175,6 +176,22 @@ createApp({
     methods: {
         toActiveContact(i) {
             this.activeContact = i;
+        },
+
+        sendMessage() {
+            this.contacts[this.activeContact].messages.push({
+                date: new Date(),
+                message: this.newMessage,
+                status: 'sent'
+            });
+            this.newMessage = '';
+            setTimeout(() => {
+                this.contacts[this.activeContact].messages.push({
+                    date: new Date(),
+                    message: 'ok',
+                    status: 'received'
+                });
+            }, 1000);
         }
     }
 }).mount('#app');
