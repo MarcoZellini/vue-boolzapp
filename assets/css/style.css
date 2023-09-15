@@ -357,6 +357,21 @@
 
 .message_text {
     margin: .5rem;
+    max-width: 85%;
+    word-wrap: break-word;
+}
+
+.message > i.fa-chevron-down {
+    display: none;
+    align-self: start;
+}
+
+.message > .fa-chevron-down.active {
+    display: block;
+}
+
+.message:hover > i.fa-chevron-down {
+    display: block;
 }
 
 .message_settings {
@@ -367,7 +382,7 @@
     padding: .5rem;
     position: absolute;
     right: 10px;
-    top: calc(100% - 20px);
+    top: 30px;
     z-index: 10;
     display: none;
 }
@@ -384,6 +399,11 @@
 .hour {
     display: block;
     text-align: right;
+    font-size: 0.6rem;
+    padding: 0 .5rem .25rem 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 .chat_inputs {

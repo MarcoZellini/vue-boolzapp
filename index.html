@@ -191,12 +191,13 @@
                                         <div class="message_text">{{item.message}}</div>
                                         <!-- /.message_text -->
                                         <i class="fas fa-chevron-down"
+                                        :class="item.activeSettings ? 'active' : ''"
                                             @click="activeMessageSettings(i)"></i>
                                         <!-- <i class="fas fa-chevron-up"></i> -->
 
-                                        <!-- <small class="hour">
+                                        <small class="hour">
                                             {{ getMessageHour(i) }}
-                                        </small> -->
+                                        </small>
                                         <!-- /.hour -->
 
                                         <div class="message_settings"
