@@ -192,7 +192,7 @@ createApp({
             const date = new Date();
             const day = date.getDay().toString().padStart(2, '0');
             const month = (date.getMonth() + 1).toString().padStart(2, '0');
-            const year = date.getYear().toString().padStart(2, '0');
+            const year = date.getFullYear().toString();
             const hour = date.getHours().toString().padStart(2, '0');
             const minute = date.getMinutes().toString().padStart(2, '0');
             const second = date.getSeconds().toString().padStart(2, '0');
@@ -250,7 +250,6 @@ createApp({
 
         removeMessage(i) {
             this.contacts[this.activeContact].messages.splice(i, 1);
-            console.log(this.contacts[this.activeContact].messages);
         }
     }
 }).mount('#app');
