@@ -246,6 +246,11 @@ createApp({
                 this.closeAllMessageSettings();
             }
 
+        },
+
+        removeMessage(i) {
+            this.contacts[this.activeContact].messages.splice(i, 1);
+            console.log(this.contacts[this.activeContact].messages);
         }
     }
 }).mount('#app');
