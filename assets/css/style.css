@@ -110,6 +110,15 @@
     align-self: flex-start;
 }
 
+i,
+img,
+.profile_name,
+.contact,
+.communication_info,
+.chat_contact {
+    cursor: pointer;
+}
+
 /* #endregion generals */
 
 /* #region left_side */
