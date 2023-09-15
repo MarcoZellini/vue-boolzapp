@@ -31,11 +31,16 @@
             ● Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
             un “ok” come risposta, che apparirà dopo 1 secondo. -->
 
-
         <!-- Milestone 4
             ● Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i
             contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
             “mar” rimangono solo Marco e Martina) -->
+
+        <!-- Milestone 5 - opzionale
+            ● Cancella messaggio: cliccando sul messaggio appare un menu a tendina che
+            permette di cancellare il messaggio selezionato
+            ● Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti
+         -->
 
         <main id="site_main">
             <div id="app">
@@ -97,13 +102,13 @@
                                 <i class="fas fa-search fa-lg fa-fw"></i>
                             </button>
                             <input type="text" class="search_input"
-                            v-model="searchText"
+                                v-model="searchText"
                                 placeholder="Cerca o inizia una nuova chat">
                         </form>
                     </div>
                     <!-- /.contacts_search_bar -->
                     <div class="contact_list">
-                        <template  v-for="(item, i) in contacts">
+                        <template v-for="(item, i) in contacts">
                             <div class="contact"
                                 v-show="item.name.toLowerCase().includes(searchText.toLowerCase())"
                                 :class="activeContact === i ? 'active' : ''"
@@ -181,19 +186,36 @@
 
                             <div class="container">
                                 <template
-                                    v-for="item in contacts[activeContact].messages">
+                                    v-for="(item, i) in contacts[activeContact].messages">
                                     <div class="message" :class="item.status">
-                                        <div class="text_message">{{item.message}}</div>
-                                        <!-- /.text_message -->
-                                        <small class="hour">
-                                            <!-- TODO: Rifare il calcolo dell'ora!! -->
+                                        <div class="message_text">{{item.message}}</div>
+                                        <!-- /.message_text -->
+                                        <i class="fas fa-chevron-down"
+                                            @click="activeMessageSettings(i)"></i>
+                                        <!-- <i class="fas fa-chevron-up"></i> -->
+
+                                        <!-- <small class="hour">
+                                            TODO: Rifare il calcolo dell'ora!!
                                             {{ new Date(item.date).getHours() +
                                             ':' +
                                             new Date(item.date).getMinutes() }}
-                                        </small>
+                                        </small> -->
                                         <!-- /.hour -->
+
+                                        <div class="message_settings"
+                                            :class="[item.status, item.activeSettings ? 'active' : '']">
+                                            <div class="message_info">Info
+                                                Messaggio</div>
+                                            <!-- /.message_info -->
+                                            <div class="message_remove">Elimina
+                                                Messaggio</div>
+                                            <!-- /.message_remove -->
+                                        </div>
+                                        <!-- /.message_settings -->
+
                                     </div>
                                     <!-- /.message -->
+
                                 </template>
                             </div>
 

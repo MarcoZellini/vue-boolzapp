@@ -107,7 +107,7 @@
 
 .received {
     background-color: var(--bz-white);
-    align-content: flex-start;
+    align-self: flex-start;
 }
 
 /* #endregion generals */
@@ -349,11 +349,36 @@
     width: 35%;
     padding: .5rem;
     margin: .5rem;
-    display: inline-block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
 }
 
-.text_message {
-    margin: .75rem 0 0 .75rem;
+.message_text {
+    margin: .5rem;
+}
+
+.message_settings {
+    padding-right: .25rem;
+    flex-grow: 0;
+    background-color: var(--bz-light);
+    border-radius: 10px;
+    padding: .5rem;
+    position: absolute;
+    right: 10px;
+    top: calc(100% - 20px);
+    z-index: 10;
+    display: none;
+}
+
+.message_settings.active {
+    display: block;
+}
+
+.message_info,
+.message_remove {
+    margin: 1rem;
 }
 
 .hour {

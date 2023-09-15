@@ -175,17 +175,24 @@ createApp({
         }
     },
     methods: {
+        
         toActiveContact(i) {
             this.activeContact = i;
+
+            //Se i message_settings sono rimasti aperti vengono chiusi
+            this.closeAllMessageSettings();
         },
 
         sendMessage() {
+            //Aggiungo il messaggio inserito alla lista messaggi del contatto attivo
             this.contacts[this.activeContact].messages.push({
                 date: new Date(),
                 message: this.newMessage,
                 status: 'sent'
             });
             this.newMessage = '';
+
+            //Il contatto attivo mi risponde con un ok dopo 1 secondo
             setTimeout(() => {
                 this.contacts[this.activeContact].messages.push({
                     date: new Date(),
@@ -193,6 +200,22 @@ createApp({
                     status: 'received'
                 });
             }, 1000);
+        },
+
+        closeAllMessageSettings() {
+            //Chiudo tutti i message_settings quando richiamo questa funzione
+            this.contacts[this.activeContact].messages.forEach(element => {
+                element.activeSettings = false;
+            });
+        },
+
+        activeMessageSettings(i) {
+            //Prima di aprire il menu di impostazioni, imposto activeSettings su false
+            //In questo modo solo il menu del messaggio selezionato sara' attivo
+            this.closeAllMessageSettings();
+
+            //Attivo e disattivo il Menu'
+            this.contacts[this.activeContact].messages[i].activeSettings = true;
         }
     }
 }).mount('#app');
