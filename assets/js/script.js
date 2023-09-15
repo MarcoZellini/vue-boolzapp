@@ -176,14 +176,8 @@ createApp({
     },
     methods: {
 
-        getMessageHour(i) {
-            const currentHour = this.contacts[this.activeContact].messages[i].date.split(' '); /*[date, hour] */
-            const timeList = currentHour[1].split(':'); /* [hh : mm : ss] */
-            return `${timeList[0]}:${timeList[1]}`;
-        },
-
-        getLastMessageHour(i) {
-            const currentHour = this.contacts[i].messages[this.contacts[i].messages.length - 1].date.split(' '); /*[date, hour] */
+        getMessageHour(contactIndex, messageIndex) {
+            const currentHour = this.contacts[contactIndex].messages[messageIndex].date.split(' '); /*[date, hour] */
             const timeList = currentHour[1].split(':'); /* [hh : mm : ss] */
             return `${timeList[0]}:${timeList[1]}`;
         },

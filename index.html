@@ -133,7 +133,7 @@
                                 </div>
                                 <!-- /.contact_info -->
                                 <div v-if="item.messages.length > 0" class="last_message_hour">
-                                    <small>{{ getLastMessageHour(i) }}</small>
+                                    <small>{{ getMessageHour(i, contacts[i].messages.length - 1) }}</small>
                                 </div>
                                 <!-- /.last_message_hour -->
                             </div>
@@ -198,7 +198,7 @@
                                         <!-- <i class="fas fa-chevron-up"></i> -->
 
                                         <small class="hour">
-                                            {{ getMessageHour(i) }}
+                                            {{ getMessageHour(activeContact, i) }}
                                         </small>
                                         <!-- /.hour -->
 
