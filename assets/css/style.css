@@ -259,11 +259,17 @@ img,
     flex-direction: column;
     flex-grow: 1;
     margin: 0 0.8rem;
+    width: 80%;
 }
 
 .contact_name {
     color: var(--bz-black);
     margin-bottom: .5rem;
+}
+
+.contact_last_message {
+    word-wrap: break-word;
+    max-width: 80%;
 }
 
 .last_message_hour {
