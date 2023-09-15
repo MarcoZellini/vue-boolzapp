@@ -188,6 +188,18 @@ createApp({
             return `${timeList[0]}:${timeList[1]}`;
         },
 
+        setDate() {
+            const date = new Date();
+            const day = date.getDay().toString().padStart(2, '0');
+            const month = (date.getMonth() + 1).toString().padStart(2, '0');
+            const year = date.getYear().toString().padStart(2, '0');
+            const hour = date.getHours().toString().padStart(2, '0');
+            const minute = date.getMinutes().toString().padStart(2, '0');
+            const second = date.getSeconds().toString().padStart(2, '0');
+
+            return `${day}/${month}/${year} ${hour}:${minute}:${second}`;
+        },
+
         toActiveContact(i) {
             this.activeContact = i;
 
@@ -198,7 +210,7 @@ createApp({
         sendMessage() {
             //Aggiungo il messaggio inserito alla lista messaggi del contatto attivo
             this.contacts[this.activeContact].messages.push({
-                date: new Date(),
+                date: this.setDate(),
                 message: this.newMessage,
                 status: 'sent'
             });
@@ -207,7 +219,7 @@ createApp({
             //Il contatto attivo mi risponde con un ok dopo 1 secondo
             setTimeout(() => {
                 this.contacts[this.activeContact].messages.push({
-                    date: new Date(),
+                    date: this.setDate(),
                     message: 'ok',
                     status: 'received'
                 });
