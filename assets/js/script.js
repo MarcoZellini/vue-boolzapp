@@ -176,9 +176,14 @@ createApp({
     },
     methods: {
 
+        getMessageHour(i) {
+            const currentHour = this.contacts[this.activeContact].messages[i].date.split(' '); /*[date, hour] */
+            const timeList = currentHour[1].split(':'); /* [hh : mm : ss] */
+            return `${timeList[0]}:${timeList[1]}`;
+        },
+
         getLastMessageHour(i) {
             const currentHour = this.contacts[i].messages[this.contacts[i].messages.length - 1].date.split(' '); /*[date, hour] */
-            console.log(currentHour);
             const timeList = currentHour[1].split(':'); /* [hh : mm : ss] */
             return `${timeList[0]}:${timeList[1]}`;
         },
@@ -217,12 +222,18 @@ createApp({
         },
 
         activeMessageSettings(i) {
-            //Prima di aprire il menu di impostazioni, imposto activeSettings su false
-            //In questo modo solo il menu del messaggio selezionato sara' attivo
-            this.closeAllMessageSettings();
+            
+            if (!this.contacts[this.activeContact].messages[i].activeSettings) {
+                //Prima di aprire il menu di impostazioni, imposto activeSettings su false
+                //In questo modo solo il menu del messaggio selezionato sara' attivo
+                this.closeAllMessageSettings();
+                this.contacts[this.activeContact].messages[i].activeSettings = true;
+            } else {
+                //Prima di aprire il menu di impostazioni, imposto activeSettings su false
+                //In questo modo solo il menu del messaggio selezionato sara' attivo
+                this.closeAllMessageSettings();
+            }
 
-            //Attivo e disattivo il Menu'
-            this.contacts[this.activeContact].messages[i].activeSettings = true;
         }
     }
 }).mount('#app');
