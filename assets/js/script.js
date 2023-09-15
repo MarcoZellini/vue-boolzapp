@@ -175,7 +175,14 @@ createApp({
         }
     },
     methods: {
-        
+
+        getLastMessageHour(i) {
+            const currentHour = this.contacts[i].messages[this.contacts[i].messages.length - 1].date.split(' '); /*[date, hour] */
+            console.log(currentHour);
+            const timeList = currentHour[1].split(':'); /* [hh : mm : ss] */
+            return `${timeList[0]}:${timeList[1]}`;
+        },
+
         toActiveContact(i) {
             this.activeContact = i;
 
