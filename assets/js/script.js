@@ -1,9 +1,12 @@
 
+
+
 const { createApp } = Vue;
 
 createApp({
     data() {
         return {
+            activeContact: 0,
             contacts: [
                 {
                     name: 'Michele',
@@ -107,7 +110,7 @@ createApp({
                 },
                 {
                     name: 'Claudia',
-                    avatar: './assets/img/avatar_5.jpg',
+                    avatar: './assets/img/avatar_6.jpg',
                     visible: true,
                     messages: [
                         {
@@ -170,6 +173,9 @@ createApp({
         }
     },
     methods: {
+        toActiveContact(i) {
+            this.activeContact = i;
+        }
     }
 }).mount('#app');
 

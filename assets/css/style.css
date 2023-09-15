@@ -78,7 +78,7 @@
 }
 
 #left_side {
-    border-right: 1px solid lightgrey;
+    border-right: 1px solid var(--bz-light);
     width: 35%;
     display: flex;
     flex-direction: column;
@@ -94,6 +94,10 @@
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     margin: .5rem;
+}
+
+.contact.active {
+    background-color: var(--bz-light);
 }
 
 .sent {
@@ -234,6 +238,7 @@
     color: var(--bz-dark-soft);
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid var(--bz-light);
 }
 
 .contact_image {
