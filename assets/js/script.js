@@ -7,6 +7,7 @@ createApp({
     data() {
         return {
             newMessage: '',
+            searchText: '',
             activeContact: 0,
             contacts: [
                 {
