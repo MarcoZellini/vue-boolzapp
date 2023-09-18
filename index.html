@@ -196,6 +196,9 @@
                                         :class="item.activeSettings ? 'active' : ''"
                                             @click="activeMessageSettings(i)"></i>
                                         <!-- <i class="fas fa-chevron-up"></i> -->
+                                        <i class="fas fa-chevron-up"
+                                        :class="item.activeSettings ? 'active' : ''"
+                                            @click="activeMessageSettings(i)"></i>
 
                                         <small class="hour">
                                             {{ getMessageHour(activeContact, i) }}

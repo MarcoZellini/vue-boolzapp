@@ -376,12 +376,18 @@ img,
     word-wrap: break-word;
 }
 
-.message > i.fa-chevron-down {
+.message > i.fa-chevron-down,
+.message > i.fa-chevron-up {
     display: none;
     align-self: start;
 }
 
-.message > .fa-chevron-down.active {
+.message > .fa-chevron-down.active,
+.message:hover > .fa-chevron-down.active {
+    display: none;
+}
+
+.message > .fa-chevron-up.active {
     display: block;
 }
 
