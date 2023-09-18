@@ -171,6 +171,16 @@ createApp({
                         }
                     ],
                 }
+            ],
+            answersList: [
+                `Ho fameeee!!! 😭`,
+                `Sto studiando, non disturbarmi! 😡`,
+                `Ho comprato un nuovo videogioco 😏`,
+                `Sta sera mi guardo un film! 😁`,
+                `Mi sono sbucciato le ginocchia 😒`,
+                `Si`,
+                `No`,
+                `Forse`
             ]
         }
     },
@@ -216,7 +226,7 @@ createApp({
                 setTimeout(() => {
                     this.contacts[this.activeContact].messages.push({
                         date: this.setDate(),
-                        message: 'ok',
+                        message: this.answersList[Math.floor(Math.random() * this.answersList.length)],
                         status: 'received'
                     });
                     this.scrollDown();
@@ -253,7 +263,6 @@ createApp({
 
         cutLastMessage(lastMessage) {
             if (lastMessage.length > 35) {
-                console.log('Dajje');
                 lastMessage =  lastMessage.slice(0, 35) + '...';
             }
             return lastMessage;
