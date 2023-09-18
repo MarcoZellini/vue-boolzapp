@@ -122,9 +122,12 @@
                                 <div class="contact_info">
                                     <div class="contact_name">{{item.name}}</div>
                                     <!-- /.contact_name -->
-                                    <small v-if="item.messages.length > 0" class="contact_last_message">
-                                        {{ cutLastMessage(item.messages[item.messages.length -
-                                            1].message) }}
+                                    <small v-if="item.messages.length > 0"
+                                        class="contact_last_message">
+                                        {{
+                                        cutLastMessage(item.messages[item.messages.length
+                                        -
+                                        1].message) }}
                                     </small>
                                     <small v-else class="contact_last_message">
                                         Non ci sono messaggi in questa chat...
@@ -132,8 +135,10 @@
                                     <!-- /.contact_last_message -->
                                 </div>
                                 <!-- /.contact_info -->
-                                <div v-if="item.messages.length > 0" class="last_message_hour">
-                                    <small>{{ getMessageHour(i, contacts[i].messages.length - 1) }}</small>
+                                <div v-if="item.messages.length > 0"
+                                    class="last_message_hour">
+                                    <small>{{ getMessageHour(i,
+                                        contacts[i].messages.length - 1) }}</small>
                                 </div>
                                 <!-- /.last_message_hour -->
                             </div>
@@ -193,15 +198,16 @@
                                         <div class="message_text">{{item.message}}</div>
                                         <!-- /.message_text -->
                                         <i class="fas fa-chevron-down"
-                                        :class="item.activeSettings ? 'active' : ''"
+                                            :class="item.activeSettings ? 'active' : ''"
                                             @click="activeMessageSettings(i)"></i>
                                         <!-- <i class="fas fa-chevron-up"></i> -->
                                         <i class="fas fa-chevron-up"
-                                        :class="item.activeSettings ? 'active' : ''"
+                                            :class="item.activeSettings ? 'active' : ''"
                                             @click="activeMessageSettings(i)"></i>
 
                                         <small class="hour">
-                                            {{ getMessageHour(activeContact, i) }}
+                                            {{ getMessageHour(activeContact, i)
+                                            }}
                                         </small>
                                         <!-- /.hour -->
 
@@ -211,7 +217,7 @@
                                                 Messaggio</div>
                                             <!-- /.message_info -->
                                             <div class="message_remove"
-                                            @click="removeMessage(i)">Elimina
+                                                @click="removeMessage(i)">Elimina
                                                 Messaggio</div>
                                             <!-- /.message_remove -->
                                         </div>
@@ -239,11 +245,15 @@
                                         @keyup.enter="sendMessage">
                                 </div>
                                 <!-- /.chat_input -->
-                                <div class="voice_message">
+                                <div class="send_buttons"
+                                    :class="newMessage !== '' ? 'active' : ''">
                                     <i
                                         class="fa-solid fa-microphone fa-lg fa-fw"></i>
+                                    <i
+                                        class="fa-solid fa-paper-plane fa-lg fa-fw"
+                                        @click="sendMessage"></i>
                                 </div>
-                                <!-- /.voice_message -->
+                                <!-- /.send_buttons -->
                             </div>
                             <!-- /.chat_inputs -->
                         </div>

@@ -59,7 +59,6 @@
 
 /* #endregion debug */
 
-
 /* #region generals */
 
 #site_main {
@@ -292,6 +291,8 @@ img,
     height: 100%;
 }
 
+/* #region top */
+
 .top {
     display: flex;
     align-items: center;
@@ -332,18 +333,9 @@ img,
     font-size: bold;
 }
 
-.bottom {
-    padding: 0 1rem;
-}
+/* #endregion top */
 
-.emoticons,
-.chat_input,
-.voice_message {
-    padding: 1rem .5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+/* #region chat_messages */
 
 .chat_messages {
     background-image: url(../img/mine.jpg);
@@ -427,6 +419,23 @@ img,
     bottom: 0;
 }
 
+/* #endregion chat_messages */
+
+/* #region bottom */
+
+.bottom {
+    padding: 0 1rem;
+}
+
+.emoticons,
+.chat_input,
+.send_buttons {
+    padding: 1rem .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .chat_inputs {
     display: flex;
     justify-content: space-between;
@@ -445,5 +454,19 @@ img,
     padding: 1rem .5rem;
     border-radius: 5px;
 }
+
+.send_buttons i.fa-paper-plane {
+    display: none;
+}
+
+.send_buttons.active i.fa-paper-plane {
+    display: block;
+}
+
+.send_buttons.active i.fa-microphone {
+    display: none;
+}
+
+/* #endregion bottom */
 
 /* #endregion right_side */
