@@ -108,7 +108,8 @@
                     </div>
                     <!-- /.contacts_search_bar -->
                     <div class="contact_list">
-                        <template v-for="(item, i) in contacts">
+                        <template v-if="contacts.length > 0"
+                            v-for="(item, i) in contacts">
                             <div class="contact"
                                 v-show="item.name.toLowerCase().includes(searchText.toLowerCase())"
                                 :class="activeContact === i ? 'active' : ''"
@@ -124,10 +125,8 @@
                                     <!-- /.contact_name -->
                                     <small v-if="item.messages.length > 0"
                                         class="contact_last_message">
-                                        {{
-                                        cutLastMessage(item.messages[item.messages.length
-                                        -
-                                        1].message) }}
+                                        {{cutLastMessage(item.messages[item.messages.length
+                                        - 1].message) }}
                                     </small>
                                     <small v-else class="contact_last_message">
                                         Non ci sono messaggi in questa chat...
@@ -153,7 +152,7 @@
                 <div id="right_side">
 
                     <div id="chat">
-                        <div class="top">
+                        <div class="top" v-if="activeContact !== null">
                             <div class="chat_contact">
                                 <div class="chat_contact_image">
                                     <img
@@ -164,14 +163,15 @@
                                     <div class="chat_contact_name">{{contacts[activeContact].name}}</div>
                                     <!-- /.contact_name -->
                                     <small class="chat_contact_last_access">
-                                         {{activeContactStatus}}
+                                        {{activeContactStatus}}
                                     </small>
                                     <!-- /.contact_last_message -->
                                 </div>
                                 <!-- /.contact_info -->
                             </div>
                             <!-- /.contact -->
-                            <div class="chat_actions">
+                            <div class="chat_actions"
+                                v-show="contacts.length > 0">
                                 <div class="search">
                                     <i
                                         class="fa-solid fa-magnifying-glass fa-lg fa-fw"></i>
@@ -183,16 +183,34 @@
                                 <!-- /.graffetta -->
                                 <div class="settings">
                                     <i
-                                        class="fa-solid fa-ellipsis-vertical fa-lg fa-fw"></i>
+                                        class="fa-solid fa-ellipsis-vertical fa-lg fa-fw"
+                                        @click="toggleActiveChatSettings"></i>
+
+                                    <div class="chat_settings"
+                                        v-if="contacts.length > 0 && activeContact !== null"
+                                        :class="contacts[this.activeContact].enableChatSettings ? 'active' : ''">
+                                        <div class="delete_messages"
+                                            @click="deleteAllMessages">Elimina
+                                            Messaggi</div>
+                                        <!-- /.delete_messages -->
+                                        <div class="delete_chat"
+                                            @click="deleteChat">Elimina Chat</div>
+                                        <!-- /.delete_chat -->
+                                    </div>
+                                    <!-- /.chat_settings -->
                                 </div>
                                 <!-- /.settings -->
                             </div>
                             <!-- /.chat_settings -->
                         </div>
+                        <div class="top no_chat" v-else>
+                            <div class="no_chat_text">Nessuna Chat Selezionata, fare click su un contatto per visualizzarne una!</div>
+                        </div>
                         <!-- /.top -->
                         <div class="chat_messages" ref="chat_messages_ref">
                             <div class="container">
                                 <template
+                                    v-if="contacts.length > 0 && activeContact !== null"
                                     v-for="(item, i) in contacts[activeContact].messages">
                                     <div class="message" :class="item.status">
                                         <div class="message_text">{{item.message}}</div>
@@ -206,8 +224,8 @@
                                             @click="activeMessageSettings(i)"></i>
 
                                         <small class="hour">
-                                            {{ getMessageHour(activeContact, i)
-                                            }}
+                                            {{ getMessageHour(activeContact,
+                                            i)}}
                                         </small>
                                         <!-- /.hour -->
 
@@ -260,7 +278,6 @@
                         <!-- /.chat_inputs -->
                     </div>
                     <!-- /.chat -->
-
                 </div>
                 <!-- /#right_side -->
             </div>

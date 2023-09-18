@@ -8,9 +8,9 @@ createApp({
         return {
             newMessage: '',
             searchText: '',
-            activeContact: 0,
+            activeContact: null,
             contacts: [
-                {
+               {
                     name: 'Michele',
                     avatar: './assets/img/avatar_1.jpg',
                     visible: true,
@@ -171,7 +171,7 @@ createApp({
                         }
                     ],
                 }
-            ],
+            ], 
             answerWritten: true,
             answersList: [
                 `Ho fameeee!!! 😭`,
@@ -260,10 +260,10 @@ createApp({
         },
 
         activeMessageSettings(i) {
-
             if (!this.contacts[this.activeContact].messages[i].activeSettings) {
                 //Prima di aprire il menu di impostazioni, imposto activeSettings su false
                 //In questo modo solo il menu del messaggio selezionato sara' attivo
+                this.disableActiveChatSettings();
                 this.closeAllMessageSettings();
                 this.contacts[this.activeContact].messages[i].activeSettings = true;
             } else {
@@ -271,7 +271,40 @@ createApp({
                 //In questo modo solo il menu del messaggio selezionato sara' attivo
                 this.closeAllMessageSettings();
             }
+        },
 
+        toggleActiveChatSettings() {
+
+            if (!this.contacts[this.activeContact].enableChatSettings) {
+                this.closeAllMessageSettings()
+                this.enebleActiveChatSettings()
+            } else {
+                this.disableActiveChatSettings()
+            }
+
+        },
+
+        enebleActiveChatSettings() {
+            this.contacts[this.activeContact].enableChatSettings = true;
+        },
+
+        disableActiveChatSettings() {
+            this.contacts[this.activeContact].enableChatSettings = false;
+        },
+
+        deleteAllMessages () {
+            this.contacts[this.activeContact].messages = [];
+        },
+
+        deleteChat() {
+            if (this.activeContact >= 0) {
+                this.contacts.splice(this.activeContact, 1);
+                if (this.activeContact > 0) {
+                    this.activeContact--;
+                } else if (this.activeContact == 0 && this.contacts.length == 0) {
+                    this.activeContact = null;
+                }
+            }
         },
 
         removeMessage(i) {
