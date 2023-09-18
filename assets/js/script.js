@@ -210,6 +210,7 @@ createApp({
                     status: 'sent'
                 });
                 this.newMessage = '';
+                this.scrollDown();
 
                 //Il contatto attivo mi risponde con un ok dopo 1 secondo
                 setTimeout(() => {
@@ -218,7 +219,9 @@ createApp({
                         message: 'ok',
                         status: 'received'
                     });
+                    this.scrollDown();
                 }, 1000);
+                
             }
         },
 
@@ -254,7 +257,20 @@ createApp({
                 lastMessage =  lastMessage.slice(0, 35) + '...';
             }
             return lastMessage;
-        }
+        },
+
+        scrollDown() {
+            const chat_messages = this.$refs.chat_messages_ref;
+            this.$nextTick(() => {
+                chat_messages.scrollTo(
+                {
+                  top: chat_messages.scrollHeight,
+                  left: 0,
+                  behavior: 'smooth'
+                }
+              );
+            });
+          }
     }
 }).mount('#app');
 
