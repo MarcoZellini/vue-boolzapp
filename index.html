@@ -123,8 +123,8 @@
                                     <div class="contact_name">{{item.name}}</div>
                                     <!-- /.contact_name -->
                                     <small v-if="item.messages.length > 0" class="contact_last_message">
-                                        {{ item.messages[item.messages.length -
-                                        1].message }}
+                                        {{ cutLastMessage(item.messages[item.messages.length -
+                                            1].message) }}
                                     </small>
                                     <small v-else class="contact_last_message">
                                         Non ci sono messaggi in questa chat...

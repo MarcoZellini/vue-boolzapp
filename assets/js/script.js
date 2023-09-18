@@ -246,6 +246,14 @@ createApp({
 
         removeMessage(i) {
             this.contacts[this.activeContact].messages.splice(i, 1);
+        },
+
+        cutLastMessage(lastMessage) {
+            if (lastMessage.length > 35) {
+                console.log('Dajje');
+                lastMessage =  lastMessage.slice(0, 35) + '...';
+            }
+            return lastMessage;
         }
     }
 }).mount('#app');
