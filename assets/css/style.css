@@ -170,6 +170,25 @@ img,
     padding: .4rem;
 }
 
+.add_chat { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add_chat > input {
+    height: 15px;
+    padding: .75rem .25rem;
+    display: none;
+    border-radius: 5px;
+    border: 0
+}
+
+.add_chat input.active {
+    display: block;
+}
+
+
 /* #endregion profile */
 
 /* #region communications */

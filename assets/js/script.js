@@ -6,6 +6,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            newUser: '',
             newMessage: '',
             searchText: '',
             activeContact: null,
@@ -183,7 +184,8 @@ createApp({
                 `No`,
                 `Forse`
             ],
-            activeContactStatus: `Ultimo accesso alle 12:00`
+            activeContactStatus: `Ultimo accesso alle 12:00`,
+            isAddChatEnabled: false
         }
     },
     methods: {
@@ -296,6 +298,28 @@ createApp({
             this.contacts[this.activeContact].messages = [];
         },
 
+        removeMessage(i) {
+            this.contacts[this.activeContact].messages.splice(i, 1);
+        },
+
+        addChat () {
+            const randomAvatar = `./assets/img/avatar_${Math.ceil(Math.random() * 8)}.jpg`;
+
+            this.contacts.push({
+                name: this.newUser,
+                avatar: randomAvatar,
+                messages: []
+            });
+        },
+
+        enableAddChat () {
+            this.isAddChatEnabled = true;
+        },
+
+        disableAddChat() {
+            this.isAddChatEnabled = false;
+        },
+
         deleteChat() {
             if (this.activeContact >= 0) {
                 this.contacts.splice(this.activeContact, 1);
@@ -305,10 +329,6 @@ createApp({
                     this.activeContact = null;
                 }
             }
-        },
-
-        removeMessage(i) {
-            this.contacts[this.activeContact].messages.splice(i, 1);
         },
 
         cutLastMessage(lastMessage) {
@@ -325,7 +345,7 @@ createApp({
                     {
                         top: chat_messages.scrollHeight,
                         left: 0,
-                        behavior: 'smooth'
+                        behavior: 'auto'
                     }
                 );
             });

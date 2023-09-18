@@ -49,7 +49,7 @@
                     <div class="profile">
                         <div class="profile_info">
                             <div class="profile_img">
-                                <img src="./assets/img/avatar_io.jpg"
+                                <img src="./assets/img/avatar_2.jpg"
                                     class="avatar"
                                     alt="my_avatar">
                             </div>
@@ -60,6 +60,16 @@
                         <!-- /.profile_info -->
 
                         <div class="profile_actions">
+                            <div class="add_chat" @click="enableAddChat">
+                                <i class="fa-solid fa-plus fa-xl fa-fw"></i>
+                                <input type="text"
+                                    :class="isAddChatEnabled ? 'active' : ''"
+                                    @keyup.enter="disableAddChat"
+                                    @keydown.enter="addChat"
+                                    v-model="newUser"
+                                    placeholder="Nome Nuovo Contatto">
+                            </div>
+                            <!-- /.add_chat -->
                             <div class="story">
                                 <i class="fa-solid fa-circle-notch fa-lg fa-fw"></i>
                             </div>
@@ -204,7 +214,8 @@
                             <!-- /.chat_settings -->
                         </div>
                         <div class="top no_chat" v-else>
-                            <div class="no_chat_text">Nessuna Chat Selezionata, fare click su un contatto per visualizzarne una!</div>
+                            <div class="no_chat_text">Nessuna Chat Selezionata,
+                                fare click su un contatto per visualizzarne una!</div>
                         </div>
                         <!-- /.top -->
                         <div class="chat_messages" ref="chat_messages_ref">
