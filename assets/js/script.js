@@ -202,22 +202,24 @@ createApp({
         },
 
         sendMessage() {
-            //Aggiungo il messaggio inserito alla lista messaggi del contatto attivo
-            this.contacts[this.activeContact].messages.push({
-                date: this.setDate(),
-                message: this.newMessage,
-                status: 'sent'
-            });
-            this.newMessage = '';
-
-            //Il contatto attivo mi risponde con un ok dopo 1 secondo
-            setTimeout(() => {
+            if (this.newMessage.trim() !== '') {
+                //Aggiungo il messaggio inserito alla lista messaggi del contatto attivo
                 this.contacts[this.activeContact].messages.push({
                     date: this.setDate(),
-                    message: 'ok',
-                    status: 'received'
+                    message: this.newMessage,
+                    status: 'sent'
                 });
-            }, 1000);
+                this.newMessage = '';
+
+                //Il contatto attivo mi risponde con un ok dopo 1 secondo
+                setTimeout(() => {
+                    this.contacts[this.activeContact].messages.push({
+                        date: this.setDate(),
+                        message: 'ok',
+                        status: 'received'
+                    });
+                }, 1000);
+            }
         },
 
         closeAllMessageSettings() {
@@ -228,7 +230,7 @@ createApp({
         },
 
         activeMessageSettings(i) {
-            
+
             if (!this.contacts[this.activeContact].messages[i].activeSettings) {
                 //Prima di aprire il menu di impostazioni, imposto activeSettings su false
                 //In questo modo solo il menu del messaggio selezionato sara' attivo
