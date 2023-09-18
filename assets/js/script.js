@@ -172,6 +172,7 @@ createApp({
                     ],
                 }
             ],
+            answerWritten: true,
             answersList: [
                 `Ho fameeee!!! 😭`,
                 `Sto studiando, non disturbarmi! 😡`,
@@ -181,7 +182,8 @@ createApp({
                 `Si`,
                 `No`,
                 `Forse`
-            ]
+            ],
+            activeContactStatus: `Ultimo accesso alle 12:00`
         }
     },
     methods: {
@@ -212,6 +214,7 @@ createApp({
         },
 
         sendMessage() {
+            //invio messaggio
             if (this.newMessage.trim() !== '') {
                 //Aggiungo il messaggio inserito alla lista messaggi del contatto attivo
                 this.contacts[this.activeContact].messages.push({
@@ -219,20 +222,34 @@ createApp({
                     message: this.newMessage,
                     status: 'sent'
                 });
+                this.answerWritten = false;
                 this.newMessage = '';
                 this.scrollDown();
+                this.receiveAnswer();
 
-                //Il contatto attivo mi risponde con un ok dopo 1 secondo
-                setTimeout(() => {
-                    this.contacts[this.activeContact].messages.push({
-                        date: this.setDate(),
-                        message: this.answersList[Math.floor(Math.random() * this.answersList.length)],
-                        status: 'received'
-                    });
-                    this.scrollDown();
-                }, 1000);
-                
             }
+        },
+
+        receiveAnswer() {
+            this.activeContactStatus = 'Sta scrivendo...';
+
+            //Il contatto attivo mi risponde dopo 1 secondo
+            //mantengo lo stato online per 2 secondi
+            setTimeout(() => {
+                this.contacts[this.activeContact].messages.push({
+                    date: this.setDate(),
+                    message: this.answersList[Math.floor(Math.random() * this.answersList.length)],
+                    status: 'received'
+                });
+                this.scrollDown();
+                this.answerWritten = true;
+                this.activeContactStatus = 'Online'
+            }, 1000);
+
+            //setto lo stato del contatto attivo con l'ultimo accesso all'orario dell'ultimo messaggio
+            setTimeout(() => {
+                this.activeContactStatus = `Ultimo accesso alle ${this.getMessageHour(this.activeContact, this.contacts[this.activeContact].messages.length - 1)}`;
+            }, 2000);
         },
 
         closeAllMessageSettings() {
@@ -263,7 +280,7 @@ createApp({
 
         cutLastMessage(lastMessage) {
             if (lastMessage.length > 35) {
-                lastMessage =  lastMessage.slice(0, 35) + '...';
+                lastMessage = lastMessage.slice(0, 35) + '...';
             }
             return lastMessage;
         },
@@ -272,14 +289,14 @@ createApp({
             const chat_messages = this.$refs.chat_messages_ref;
             this.$nextTick(() => {
                 chat_messages.scrollTo(
-                {
-                  top: chat_messages.scrollHeight,
-                  left: 0,
-                  behavior: 'smooth'
-                }
-              );
+                    {
+                        top: chat_messages.scrollHeight,
+                        left: 0,
+                        behavior: 'smooth'
+                    }
+                );
             });
-          }
+        }
     }
 }).mount('#app');
 
